@@ -1,350 +1,3 @@
-<!--<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제11회 미주한국국악경연대회 심사위원 교육</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: #f0f0f0;
-        }
-        .container {
-            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdhnbLu%2FbtsJf8M1RSV%2FF5aulC0qMJAxMurlsKJ7k1%2Fimg.png');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #333;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .content {
-            background-color: rgba(253, 255, 232, 0.61);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 800px;
-            width: 100%;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #1a237e;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            margin: 10px;
-            background-color: #3f51b5;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            background-color: #303f9f;
-            transform: translateY(-2px);
-        }
-        #signaturePad {
-            border: 2px solid #3f51b5;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        input[type="text"] {
-            width: 70%;
-            padding: 12px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #3f51b5;
-            font-size: 1em;
-        }
-        .video-container, .chatbot-container {
-            margin-top: 20px;
-            width: 100%;
-            max-width: 800px;
-        }
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 10px;
-        }
-        img {
-            width: 15%
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-       
-        <div class="content">
-            <img src = "https://blog.kakaocdn.net/dn/owmWP/btsJf8TN0An/iF390tnmI2gYTryuBBCFy0/img.gif">
-            <h1>제11회 미주한국국악경연대회 심사위원 교육</h1>
-            <p>존경하는 심사위원 여러분, 환영합니다. 아래 자료들을 확인하시고 서명해 주시기 바랍니다.</p>
-        </div>
-        
-        <div class="video-container">
-            <h2>사전교육영상</h2>
-            
-            <iframe title="'제11회 미주한국국악경연대회 조직위원회'에서 업로드한 동영상" width="640" height="360" src="https://play-tv.kakao.com/embed/player/cliplink/449074099?service=player_share" allowfullscreen frameborder="0" scrolling="no" allow="autoplay; fullscreen; encrypted-media"></iframe>
-        </div>
-        
-        <div class="chatbot-container">
-            <h2>챗봇 에이전트에게 물어보세요</h2>
-            <iframe src="https://studio.d-id.com/agents/share?id=agt_ofcgxDcO&key=WjI5dloyeGxMVzloZFhSb01ud3hNVGMwT1RrNU56RTBNVGs1TXpJM01UYzRNalU2YjFKaFdsSjNjVmRHYkRrNFRrcHdPRzlGUm5seA=="></iframe>
-        </div>
-        
-        <div class="content">
-            <h2>심사위원 서명</h2>
-            <input type="text" id="judgeName" placeholder="심사위원 성함을 입력해주세요" required>
-            <canvas id="signaturePad" width="400" height="200"></canvas>
-            <button class="btn" id="resetSignature">다시 쓰기</button> 
-            <a href="#" class="btn" id="saveSignature">서명 제출</a>
-        </div>
-    </div>
-
-    <script>
-        var canvas = document.getElementById('signaturePad');
-        var signaturePad = new SignaturePad(canvas);
-
-        document.getElementById('saveSignature').addEventListener('click', function() {
-            var name = document.getElementById('judgeName').value;
-            if (name && !signaturePad.isEmpty()) {
-                var dataURL = signaturePad.toDataURL('https://drive.google.com/drive/folders/1xW2J58h2EG91uQU9M_nXrO1cuEjrS9Xr?usp=drive_link');
-                var link = document.createElement('a');
-                link.href = dataURL;
-                link.download = name + '_signature.png';
-                link.click();
-                alert(name + '선생님의 서명이 성공적으로 저장되었습니다.');
-                signaturePad.clear();
-                document.getElementById('judgeName').value = '';
-            } else {
-                alert('성함을 입력하고 서명해주세요.');
-            }
-        });
-    </script>
-
-<script>  
-    var canvas = document.getElementById('signaturePad');  
-    var signaturePad = new SignaturePad(canvas);  
-
-    document.getElementById('saveSignature').addEventListener('click', function() {  
-        var name = document.getElementById('judgeName').value;  
-        if (name && !signaturePad.isEmpty()) {  
-            var dataURL = signaturePad.toDataURL();  
-            var link = document.createElement('a');  
-            link.href = dataURL;  
-            link.download = name + '_signature.png';  
-            link.click();  
-            alert(name + '선생님의 서명이 성공적으로 저장되었습니다.');  
-            signaturePad.clear();  
-            document.getElementById('judgeName').value = '';  
-        } else {  
-            alert('성함을 입력하고 서명해주세요.');  
-        }  
-    });  
-
-    document.getElementById('resetSignature').addEventListener('click', function() {  
-        signaturePad.clear();  
-    
-    });  
-</script>  
-</body>
-</html>-->
-<!--<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제11회 미주한국국악경연대회 심사위원 페이지</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <style>
-        body {
-            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdhnbLu%2FbtsJf8M1RSV%2FF5aulC0qMJAxMurlsKJ7k1%2Fimg.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: rgba(255, 255, 255, 0.85);
-            background-blend-mode: overlay;
-        }
-        .content-box {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body class="min-h-screen bg-gray-100">
-    <div class="container mx-auto px-4 py-8">
-        <header class="mb-8 text-center md:text-left">
-            <img src="https://blog.kakaocdn.net/dn/owmWP/btsJf8TN0An/iF390tnmI2gYTryuBBCFy0/img.gif" alt="대회 로고" class="mx-auto md:mx-0 h-24 mb-4">
-            <h1 class="text-3xl md:text-4xl font-bold text-indigo-900">
-                <span class="block md:inline">제11회</span>
-                <span class="block md:inline">미주한국국악경연대회</span>
-            </h1>
-        </header>
-        
-        <main class="space-y-8">
-            <section class="content-box p-6">
-                <h2 class="text-2xl font-semibold mb-4 text-indigo-800">사전 교육 영상</h2>
-                <div class="aspect-w-16 aspect-h-9 mb-4">
-                    <iframe src="https://tv.kakao.com/v/449074099" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"></iframe>
-                </div>
-                <p class="text-lg text-indigo-900 text-left">
-                    존경하는 심사위원 여러분, 환영합니다. 위 영상을 통해 심사 기준과 절차에 대해 숙지해 주시기 바랍니다.
-                </p>
-            </section>
-            
-            <section class="content-box p-6">
-                <h2 class="text-2xl font-semibold mb-4 text-indigo-800">질의응답 챗봇</h2>
-                <p class="text-lg text-indigo-900 mb-4 text-left">
-                    심사 과정에서 궁금한 점이 있으시면 언제든 아래 챗봇을 이용해 주세요.
-                </p>
-                <iframe src="https://studio.d-id.com/agents/share?id=agt_ofcgxDcO&key=WjI5dloyeGxMVzloZFhSb01ud3hNVGMwT1RrNU56RTBNVGs1TXpJM01UYzRNalU2YjFKaFdsSjNjVmRHYkRrNFRrcHdPRzlGUm5seA==" target="_blank" class="block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"></iframe>
-                <a href="https://studio.d-id.com/agents/share?id=agt_ofcgxDcO&key=WjI5dloyeGxMVzloZFhSb01ud3hNVGMwT1RrNU56RTBNVGs1TXpJM01UYzRNalU2YjFKaFdsSjNjVmRHYkRrNFRrcHdPRzlGUm5seA==" target="_blank" class="block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                    챗봇 시작하기
-                </a>
-            </section>
-            
-            <section class="content-box p-6">
-                <h2 class="text-2xl font-semibold mb-4 text-indigo-800">심사위원 확인 서명</h2>
-                <form id="signatureForm" class="space-y-4">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-indigo-900">이름</label>
-                        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-indigo-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    </div>
-                    <div>
-                        <label for="signature" class="block text-sm font-medium text-indigo-900">서명</label>
-                        <canvas id="signatureCanvas" class="border border-indigo-300 rounded-md w-full h-40"></canvas>
-                    </div>
-                    <div class="flex space-x-4">
-                        <button type="button" id="clearSignature" class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                            다시 쓰기
-                        </button>
-                        <button type="submit" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                            제출
-                        </button>
-                    </div>
-                </form>
-            </section>
-        </main>
-    </div>
-
-    <script>
-        // 서명 캔버스 설정
-        const canvas = document.getElementById('signatureCanvas');
-        const ctx = canvas.getContext('2d');
-        let isDrawing = false;
-
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('mouseout', stopDrawing);
-
-        canvas.addEventListener('touchstart', startDrawing);
-        canvas.addEventListener('touchmove', draw);
-        canvas.addEventListener('touchend', stopDrawing);
-
-        function startDrawing(e) {
-            isDrawing = true;
-            draw(e);
-        }
-
-        function draw(e) {
-            if (!isDrawing) return;
-
-            e.preventDefault();
-
-            ctx.lineWidth = 2;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = '#000';
-
-            if (e.type.startsWith('mouse')) {
-                ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-            } else if (e.type.startsWith('touch')) {
-                const touch = e.touches[0];
-                ctx.lineTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
-            }
-            
-            ctx.stroke();
-            ctx.beginPath();
-            
-            if (e.type.startsWith('mouse')) {
-                ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-            } else if (e.type.startsWith('touch')) {
-                const touch = e.touches[0];
-                ctx.moveTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
-            }
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-            ctx.beginPath();
-        }
-
-        // 서명 지우기
-        document.getElementById('clearSignature').addEventListener('click', () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        });
-
-        // 폼 제출
-        document.getElementById('signatureForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const signatureImage = canvas.toDataURL();
-            
-            // Google Drive API를 사용하여 파일 업로드
-            await uploadToGoogleDrive(name, signatureImage);
-        });
-
-        // Google Drive API 초기화 및 파일 업로드
-        async function uploadToGoogleDrive(name, signatureImage) {
-            gapi.load('client', async () => {
-                await gapi.client.init({
-                    apiKey: 'AIzaSyBKK_NUFECZ1vQY37vkW4b3c7P9b_WJBT4',
-                    discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
-                });
-
-                const fileContent = atob(signatureImage.split(',')[1]);
-                const fileName = `${name}_signature.png`;
-
-                const file = new Blob([fileContent], {type: 'image/png'});
-                const metadata = {
-                    'name': fileName,
-                    'parents': ['1xW2J58h2EG91uQU9M_nXrO1cuEjrS9Xr']
-                };
-
-                const form = new FormData();
-                form.append('metadata', new Blob([JSON.stringify(metadata)], {type: 'application/json'}));
-                form.append('file', file);
-
-                fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
-                    method: 'POST',
-                    headers: new Headers({'Authorization': 'Bearer ' + gapi.auth.getToken().access_token}),
-                    body: form
-                }).then((res) => {
-                    console.log('File uploaded successfully');
-                    alert('서명이 성공적으로 제출되었습니다.');
-                }).catch((err) => {
-                    console.error('Error uploading file:', err);
-                    alert('서명 제출 중 오류가 발생했습니다. 다시 시도해 주세요.');
-                });
-            });
-        }
-    </script>
-</body>
-</html>-->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -353,13 +6,14 @@
     <title>제11회 미주한국국악경연대회 심사위원 페이지</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client"></script>
     <style>
         body {
             background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb3GyvM%2FbtsJecKmsyF%2FXHAlje4L44ckUgscAQV5f1%2Fimg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: rgb(255, 255, 255);
+            background-color: rgba(255, 255, 255, 0.85);
             background-blend-mode: overlay;
         }
         @media (min-width: 768px) {
@@ -382,6 +36,9 @@
             width: 100%;
             height: 100%;
         }
+        #signatureCanvas {
+            touch-action: none;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-100">
@@ -403,13 +60,13 @@
                     <section class="mb-8">
                         <h2 class="text-2xl font-semibold mb-4">사전 교육 영상</h2>
                         <div class="video-container">
-                            <iframe src="https://play-tv.kakao.com/embed/player/cliplink/449074099?service=player_share" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <iframe src="https://youtu.be/OQnLJdzMJNM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </section>
                     
                     <section class="mb-8">
                         <h2 class="text-2xl font-semibold mb-4">질의응답 챗봇</h2>
-                        <iframe src="https://studio.d-id.com/agents/share?id=agt_ofcgxDcO&key=WjI5dloyeGxMVzloZFhSb01ud3hNVGMwT1RrNU56RTBNVGs1TXpJM01UYzRNalU2YjFKaFdsSjNjVmRHYkRrNFRrcHdPRzlGUm5seA==" frameborder="0" style="width:100%; height:400px;"></iframe>
+                        <iframe src="https://studio.d-id.com/agents/share?id=agt_ofcgxDcO&key=WjI5dloyeGxMVzloZFhSb01ud3hNVGMwT1RrNU56RTBNVGs1TXpJM01UYzRNalU2YjFKaFdsSjNjVmRHYkRrNFRrcHdPRzlGUm5seA==" frameborder="0" style="width:100%; height:500px;"></iframe>
                     </section>
                 </div>
                 
@@ -421,9 +78,8 @@
                                 <label for="name" class="block text-sm font-medium text-gray-700">이름</label>
                                 <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             </div>
-                            <div>
-                                <label for="signature" class="block text-sm font-medium text-gray-700">서명</label>
-                                <canvas id="signatureCanvas" class="border border-gray-300 rounded-md w-full"></canvas>
+                            <div class="signature-container" style="position: relative; height: 200px;">
+                                <canvas id="signatureCanvas" class="border border-gray-300 rounded-md w-full" style="position: absolute; top: 0; left: 0;"></canvas>
                             </div>
                             <div class="flex space-x-4">
                                 <button type="submit" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
@@ -441,15 +97,48 @@
     </div>
 
     <script>
+        // Google API 클라이언트 ID
+        const CLIENT_ID = '392294338067-i10ncjsgrcmh5tgiuefe7t6re978b09r.apps.googleusercontent.com';
+        const API_KEY = 'AIzaSyBKK_NUFECZ1vQY37vkW4b3c7P9b_WJBT4';
+        const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
+        const SCOPES = 'https://www.googleapis.com/auth/drive.file';
+
+        let tokenClient;
+        let gapiInited = false;
+        let gisInited = false;
+
+        // GAPI 초기화
+        function gapiLoaded() {
+            gapi.load('client', initializeGapiClient);
+        }
+
+        async function initializeGapiClient() {
+            await gapi.client.init({
+                apiKey: API_KEY,
+                discoveryDocs: [DISCOVERY_DOC],
+            });
+            gapiInited = true;
+        }
+
+        // Google Identity Services 초기화
+        function gisLoaded() {
+            tokenClient = google.accounts.oauth2.initTokenClient({
+                client_id: CLIENT_ID,
+                scope: SCOPES,
+                callback: '', // 콜백은 나중에 설정됩니다
+            });
+            gisInited = true;
+        }
+
         // 서명 캔버스 설정
         const canvas = document.getElementById('signatureCanvas');
         const ctx = canvas.getContext('2d');
         let isDrawing = false;
 
         function resizeCanvas() {
-            const containerWidth = canvas.parentElement.offsetWidth;
-            canvas.width = containerWidth;
-            canvas.height = containerWidth * 0.5;
+            const container = canvas.parentElement;
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
         }
 
         window.addEventListener('resize', resizeCanvas);
@@ -498,68 +187,6 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         });
 
-        // Google Drive API 초기화
-        function initGoogleDriveAPI() {
-            return new Promise((resolve, reject) => {
-                gapi.load('client', async () => {
-                    try {
-                        await gapi.client.init({
-                            apiKey: 'AIzaSyBKK_NUFECZ1vQY37vkW4b3c7P9b_WJBT4',
-                            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
-                        });
-                        resolve();
-                    } catch (error) {
-                        reject(error);
-                    }
-                });
-            });
-        }
-
-        // 파일 업로드 함수
-        async function uploadToGoogleDrive(name, signatureImage) {
-            try {
-                await initGoogleDriveAPI();
-
-                const fileContent = atob(signatureImage.split(',')[1]);
-                const fileName = `${name}.png`;
-
-                const file = new Blob([fileContent], {type: 'image/png'});
-                const metadata = {
-                    'name': fileName,
-                    'parents': ['1xW2J58h2EG91uQU9M_nXrO1cuEjrS9Xr'] // 업로드할 폴더 ID
-                };
-
-                const form = new FormData();
-                form.append('metadata', new Blob([JSON.stringify(metadata)], {type: 'application/json'}));
-                form.append('file', file);
-
-                // 주석: 여기서 추가적인 인증이 필요할 수 있습니다.
-                // 예를 들어, OAuth 2.0 인증이 필요한 경우 아래와 같은 코드를 추가해야 합니다:
-                await gapi.auth2.getAuthInstance().signIn();
-                const token = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
-
-                const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
-                    method: 'POST',
-                    headers: new Headers({
-                        //'Authorization': 'Bearer ' + gapi.auth.getToken().access_token
-                        // 주석: 만약 OAuth 2.0을 사용한다면 위 줄을 아래와 같이 변경하세요:
-                        'Authorization': 'Bearer ' + token
-                    }),
-                    body: form
-                });
-
-                if (response.ok) {
-                    console.log('File uploaded successfully');
-                    alert('서명이 성공적으로 제출되었습니다.');
-                } else {
-                    throw new Error('File upload failed');
-                }
-            } catch (error) {
-                console.error('Error uploading file:', error);
-                alert('서명 제출 중 오류가 발생했습니다. 다시 시도해 주세요.');
-            }
-        }
-
         // 폼 제출
         document.getElementById('signatureForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -567,15 +194,68 @@
             const name = document.getElementById('name').value;
             const signatureImage = canvas.toDataURL();
             
-            if (name.trim() === '') {
-                alert('이름을 입력해주세요.');
+            // Google Drive API를 사용하여 파일 업로드
+            await uploadToGoogleDrive(name, signatureImage);
+        });
+
+        // Google Drive API를 사용하여 파일 업로드
+        async function uploadToGoogleDrive(name, signatureImage) {
+            if (!gapiInited || !gisInited) {
+                alert('Google API가 아직 초기화되지 않았습니다. 잠시 후 다시 시도해 주세요.');
                 return;
             }
 
-          
-            
-            await uploadToGoogleDrive(name, signatureImage);
-        });
+            // 토큰 요청
+            tokenClient.callback = async (resp) => {
+                if (resp.error !== undefined) {
+                    throw (resp);
+                }
+                await uploadFile(name, signatureImage);
+            };
+
+            if (gapi.client.getToken() === null) {
+                tokenClient.requestAccessToken({prompt: 'consent'});
+            } else {
+                tokenClient.requestAccessToken({prompt: ''});
+            }
+        }
+
+        async function uploadFile(name, signatureImage) {
+            try {
+                const fileContent = atob(signatureImage.split(',')[1]);
+                const fileName = `${name}.png`;
+
+                const file = new Blob([fileContent], {type: 'image/png'});
+                const metadata = {
+                    'name': fileName,
+                    'parents': ['1xW2J58h2EG91uQU9M_nXrO1cuEjrS9Xr']
+                };
+
+                const form = new FormData();
+                form.append('metadata', new Blob([JSON.stringify(metadata)], {type: 'application/json'}));
+                form.append('file', file);
+
+                const upload = await gapi.client.request({
+                    path: '/upload/drive/v3/files',
+                    method: 'POST',
+                    params: {uploadType: 'multipart'},
+                    headers: {
+                        'Content-Type': 'multipart/related; boundary=foo_bar_baz'
+                    },
+                    body: form
+                });
+
+                console.log('File uploaded successfully');
+                alert('서명이 성공적으로 제출되었습니다.');
+            } catch (err) {
+                console.error('Error uploading file:', err);
+                alert('서명 제출 중 오류가 발생했습니다. 다시 시도해 주세요.');
+            }
+        }
+
+        // Google API 초기화
+        gapiLoaded();
+        gisLoaded();
     </script>
 </body>
 </html>
