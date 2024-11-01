@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>제11회 미주한국국악경연대회 심사위원 페이지</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://apis.google.com/js/api.js"></script>
@@ -16,16 +16,10 @@
             background-color: rgba(255, 255, 255, 0.85);
             background-blend-mode: overlay;
         }
-        @media (min-width: 768px) {
-            .content-wrapper {
-                width: 60%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
         }
@@ -36,8 +30,25 @@
             width: 100%;
             height: 100%;
         }
+        .chatbot-container {
+            width: 100%;
+            height: 400px; /* Adjusted for better mobile view */
+        }
         #signatureCanvas {
             touch-action: none;
+        }
+        @media (max-width: 640px) {
+            .content-wrapper {
+                padding: 1rem;
+                width: 100%;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+            .video-container, .chatbot-container {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -48,50 +59,29 @@
         </header>
         
         <main class="bg-white shadow-xl rounded-lg p-8 content-wrapper">
-            <h1 class="text-3xl font-bold text-center mb-6">제11회 미주한국국악경연대회 심사위원 페이지</h1>
+            <h1 class="text-2xl md:text-3xl font-bold text-center mb-6">제11회 미주한국국악경연대회 심사위원 페이지</h1>
             
-            <p class="text-lg text-center mb-8">
+            <p class="text-base md:text-lg text-center mb-8">
                 존경하는 심사위원 여러분, 환영합니다. 본 페이지에서 사전 교육 영상을 시청하시고, 
                 질의응답을 위한 챗봇을 이용하실 수 있습니다.
             </p>
             
-            <div class="md:flex md:space-x-8">
-                <div class="md:w-2/3">
+            <div class="flex flex-col md:flex-row md:space-x-8 main-content">
+                <div class="w-full">
                     <section class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4">사전 교육 영상</h2>
+                        <h2 class="text-xl md:text-2xl font-semibold mb-4">사전 교육 영상</h2>
                         <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/_rAA9Jla4p4?si=jFzPWigE2gm4aNTW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/_rAA9Jla4p4?si=jFzPWigE2gm4aNTW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </section>
                     
                     <section class="mb-8">
-                        <h2 class="text-2xl font-semibold mb-4">질의응답 챗봇</h2>
-                        <iframe src="https://studio.d-id.com/agents/share?id=agt_ofcgxDcO&key=WjI5dloyeGxMVzloZFhSb01ud3hNVGMwT1RrNU56RTBNVGs1TXpJM01UYzRNalU2YjFKaFdsSjNjVmRHYkRrNFRrcHdPRzlGUm5seA==" frameborder="0" style="width:100%; height:500px;"></iframe>
+                        <h2 class="text-xl md:text-2xl font-semibold mb-4">질의응답 챗봇</h2>
+                        <div class="chatbot-container">
+                            <iframe src="https://studio.d-id.com/agents/share?id=agt_ofcgxDcO&key=WjI5dloyeGxMVzloZFhSb01ud3hNVGMwT1RrNU56RTBNVGs1TXpJM01UYzRNalU2YjFKaFdsSjNjVmRHYkRrNFRrcHdPRzlGUm5seA==" frameborder="0" style="width:100%; height:100%;"></iframe>
+                        </div>
                     </section>
                 </div>
-                
-                <!--<div class="md:w-1/3">
-                    <section>
-                        <h2 class="text-2xl font-semibold mb-4">심사위원 확인 서명</h2>
-                        <form id="signatureForm" class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">이름</label>
-                                <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            </div>
-                            <div class="signature-container" style="position: relative; height: 200px;">
-                                <canvas id="signatureCanvas" class="border border-gray-300 rounded-md w-full" style="position: absolute; top: 0; left: 0;"></canvas>
-                            </div>
-                            <div class="flex space-x-4">
-                                <button type="submit" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                                    제출
-                                </button>
-                                <button type="button" id="clearSignature" class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
-                                    다시 쓰기
-                                </button>
-                            </div>
-                        </form>
-                    </section>
-                </div>-->
             </div>
         </main>
     </div>
